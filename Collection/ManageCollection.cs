@@ -7,66 +7,66 @@ namespace Collection
 {
     public class ManageCollection
     {
-        public List<string> ListOperations(List<string> allData)
+        public List<string> ListOperations(List<string> strList)
         {
-            if (allData.Count % 2 != 0)
+            if (strList.Count % 2 != 0)
             {
-                allData.RemoveAt(allData.Count / 2);
+                strList.RemoveAt(strList.Count / 2);
             }
 
-            if (allData.Contains("mamas"))
+            if (strList.Contains("mamas"))
             {
-                allData.Add("6");
+                strList.Add("6");
             }
 
-            if ((allData.IndexOf("aram") + 1) % 2 != 0)
+            if ((strList.IndexOf("aram") + 1) % 2 != 0)
             {
-                allData.Reverse();
+                strList.Reverse();
             }
 
-            if (allData.GroupBy(a => a).Count() == 3)
+            if (strList.GroupBy(a => a).Count() == 3)
             {
                 List<string> newList = new List<string>();
 
-                newList.AddRange(allData.Take(2));
+                newList.AddRange(strList.Take(2));
                 newList.AddRange(new List<string> { "2", "3", "4" });
 
-                newList.AddRange(allData.Skip(2));
+                newList.AddRange(strList.Skip(2));
 
-                allData = newList;
+                strList = newList;
             }
 
-            return allData;
+            return strList;
         }
 
-        public Dictionary<string, int> DictionaryOperations(Dictionary<string, int> allData)
+        public Dictionary<string, int> DictionaryOperations(Dictionary<string, int> coursesValue)
         {
-            if (allData.ContainsKey("scuba"))
+            if (coursesValue.ContainsKey("scuba"))
             {
-                if (allData["scuba"] == 6 && !allData.ContainsKey("Empire"))
+                if (coursesValue["scuba"] == 6 && !coursesValue.ContainsKey("Empire"))
                 {
-                    allData["Empire"] = 6;
+                    coursesValue["Empire"] = 6;
 
                 }
             }
 
-            return allData;
+            return coursesValue;
         }
 
-        public Stack<DateTime> StackOperations(Stack<DateTime> allDats)
+        public Stack<DateTime> StackOperations(Stack<DateTime> dates)
         {
-            if (allDats.Count > 0)
+            if (dates.Count > 0)
             {
                 DateTime dateNow = DateTime.Now;
 
-                if (allDats.First() < dateNow)
+                if (dates.First() < dateNow)
                 {
-                    allDats.Pop();
-                    allDats.Push(dateNow);
+                    dates.Pop();
+                    dates.Push(dateNow);
                 }
             }
 
-            return allDats;
+            return dates;
         }
     }
 }
